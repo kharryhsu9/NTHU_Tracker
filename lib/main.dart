@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:nthu_tracker/mainPage.dart';
+import 'package:nthu_tracker/main_page.dart';
 
 void main() {
   runApp(MyApp());
