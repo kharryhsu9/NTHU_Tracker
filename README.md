@@ -8,9 +8,16 @@ NTHU TRACKER is an intuitive and efficient NTHU mobile application designed to s
 
 ## Workflow
 
+1. Fork this repo.
 ![Screenshot 2024-04-05 210147](https://github.com/kharryhsu9/NTHU_Tracker/assets/166118828/b71a3f60-99ba-4cca-805c-3d9b5d03485c)
+
+2. Clone it
 ![Screenshot 2024-04-05 210227](https://github.com/kharryhsu9/NTHU_Tracker/assets/166118828/f08e983d-9c6f-4300-aa20-bd6850c3969c)
+
+3. Open Git Bash
 ![Screenshot 2024-04-06 041739](https://github.com/kharryhsu9/NTHU_Tracker/assets/166118828/7618dec9-d74a-44cb-8891-a411f6da3554)
+
+4. type ```git clone [https url]```
 ![Screenshot 2024-04-06 041815](https://github.com/kharryhsu9/NTHU_Tracker/assets/166118828/b24720fc-592c-4c39-ac42-993691016731)
 ![Screenshot 2024-04-06 042149](https://github.com/kharryhsu9/NTHU_Tracker/assets/166118828/bd42dbc9-2f82-4c4c-85e4-9a9fdd6da153)
 ![Screenshot 2024-04-06 042200](https://github.com/kharryhsu9/NTHU_Tracker/assets/166118828/ed6d4f6f-717d-4596-93d0-9f26043f8f72)
