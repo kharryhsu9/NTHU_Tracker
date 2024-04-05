@@ -1,16 +1,10 @@
-# nthu_tracker
+# NTHU TRACKER
 
-A new Flutter project.
+A flutter project.
 
-## Getting Started
+## Description
 
-This project is a starting point for a Flutter application.
+NTHU TRACKER is an intuitive and efficient NTHU mobile application designed to streamline your educational journey by effortlessly managing your course credits and tracking your learning progress. With NTHU TRACKER, you can bid farewell to the complexities of keeping tabs on your academic achievements and embrace a smoother, more organized approach to your learning endeavors.
 
-A few resources to get you started if this is your first Flutter project:
+## Workflow
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
