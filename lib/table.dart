@@ -82,7 +82,7 @@ class _CourseTableState extends State<CourseTable> {
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          title: Text('Deletion for Row $index'),
+          title: Text('Deletion for Row ${index + 1}'),
           content: const Text('Do you want to remove this row?'),
           actions: <Widget>[
             TextButton(
