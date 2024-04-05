@@ -1,6 +1,6 @@
-# NTHU TRACKER
+# NTHU TRACKER+
 
-A flutter project.
+A flutter project for Software Studio Course.
 
 ## Description
 
