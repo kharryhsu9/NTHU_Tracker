@@ -1,4 +1,6 @@
-enum Category { compul, ge, drc, bcc, cc, pc, fex }
+import 'package:flutter/material.dart';
+
+enum TypeCourse { compul, ge, drc, bcc, cc, pc, fex, others }
 
 class Course {
   final String type;

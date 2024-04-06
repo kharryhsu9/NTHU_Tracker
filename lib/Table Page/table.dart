@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:nthu_tracker/new_row.dart';
+import 'package:nthu_tracker/Model/row.dart';
+import 'package:nthu_tracker/Table%20Page/new_row.dart';
+import 'package:nthu_tracker/Model/table_info.dart';
+import 'package:provider/provider.dart';
 
 class CourseTable extends StatefulWidget {
   const CourseTable({Key? key}) : super(key: key);
@@ -9,28 +12,17 @@ class CourseTable extends StatefulWidget {
 }
 
 class _CourseTableState extends State<CourseTable> {
-  final List<DataRow> _rows = [
-    const DataRow(
-      cells: [
-        DataCell(
-          Text('Professional Courses', style: TextStyle(fontSize: 14)),
-        ),
-        DataCell(
-          Text(
-            'Introduction to Data Analytics and Machine Learning',
-            style: TextStyle(fontSize: 14),
-            overflow: TextOverflow.ellipsis,
-            maxLines: 3,
-          ),
-        ),
-        DataCell(
-          Text('3', style: TextStyle(fontSize: 14)),
-        ),
-        DataCell(
-          Text('F9FaFb', style: TextStyle(fontSize: 14)),
-        ),
-      ],
-    ),
+  final List<DataRow> _rows = [];
+
+  final List<String> _courseTypeIndex = [
+    "Compulsory",
+    "General Education Course",
+    "Department Required",
+    "Basic Core Courses",
+    "Core Courses",
+    "Professional Courses",
+    "Free Eleective Course",
+    "Others",
   ];
 
   void _openAddRowOverlay(BuildContext context) {
@@ -49,14 +41,22 @@ class _CourseTableState extends State<CourseTable> {
     String time,
   ) {
     setState(() {
+      var typeInt = int.tryParse(type);
+      var typeText = typeInt != null ? _courseTypeIndex[typeInt] : type;
       _rows.add(
         DataRow(
           cells: [
             DataCell(
-              Text(type, style: const TextStyle(fontSize: 14)),
+              Text(typeText, style: const TextStyle(fontSize: 14)),
             ),
             DataCell(
-              Text(courseName, style: const TextStyle(fontSize: 14)),
+              Text(
+                courseName,
+                style: const TextStyle(fontSize: 14),
+                overflow: TextOverflow.ellipsis,
+                maxLines: 3,
+                softWrap: true,
+              ),
             ),
             DataCell(
               Text(credit, style: const TextStyle(fontSize: 14)),
@@ -67,6 +67,8 @@ class _CourseTableState extends State<CourseTable> {
           ],
         ),
       );
+      updateTable(courseName, time);
+      //sent courseName and time to file overview.dart
     });
   }
 
@@ -101,6 +103,21 @@ class _CourseTableState extends State<CourseTable> {
         );
       },
     );
+  }
+
+  void _addSampleRow() {
+    _addRow(
+      "5", // Type index for "Professional Courses"
+      "Sample Course", // Course name
+      "3", // Credits
+      "F9FaFb", // Time
+    );
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _addSampleRow(); // Add the sample row when the widget initializes
   }
 
   @override
