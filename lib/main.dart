@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:nthu_tracker/main_page.dart';
+import 'package:nthu_tracker/Table%20Page/main_page.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: MainPage(),
+      home: const MainPage(),
     );
   }
 }
