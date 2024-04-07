@@ -185,12 +185,15 @@ class _Page1State extends State<Page1> {
           ),
         ),
         Expanded(
-          child: IndexedStack(
-            index: current,
-            children: [
-              CourseTable(),
-              CourseOverview(),
-            ],
+          child: PageStorage(
+            bucket: PageStorageBucket(),
+            child: IndexedStack(
+              index: current,
+              children: [
+                CourseTable(key: PageStorageKey('Page1')),
+                CourseOverview(),
+              ],
+            ),
           ),
         ),
       ],
