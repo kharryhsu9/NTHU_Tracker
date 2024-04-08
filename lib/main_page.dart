@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:nthu_tracker/Check%20Lists%20Page/checklists.dart';
 import 'package:nthu_tracker/Table%20Page/overview.dart';
 import 'package:nthu_tracker/Table%20Page/table.dart';
+import 'package:nthu_tracker/Timer%20Page/timer.dart';
 
 class MainPage extends StatefulWidget {
   const MainPage({super.key});
@@ -23,7 +25,7 @@ class _MainPageState extends State<MainPage> {
   final List<Widget> _pages = [
     Page1(),
     const Page2(),
-    const Page3(),
+    Page3(),
     const Page4(),
     const Page5(),
   ];
@@ -185,15 +187,12 @@ class _Page1State extends State<Page1> {
           ),
         ),
         Expanded(
-          child: PageStorage(
-            bucket: PageStorageBucket(),
-            child: IndexedStack(
-              index: current,
-              children: [
-                CourseTable(key: PageStorageKey('Page1')),
-                CourseOverview(),
-              ],
-            ),
+          child: IndexedStack(
+            index: current,
+            children: [
+              CourseTable(),
+              CourseOverview(),
+            ],
           ),
         ),
       ],
@@ -206,20 +205,21 @@ class Page2 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Center(
-      child: Text('Page 2'),
-    );
+    return CheckListPage();
   }
 }
 
-class Page3 extends StatelessWidget {
-  const Page3({Key? key});
+class Page3 extends StatefulWidget {
+  Page3({Key? key});
 
   @override
+  State<Page3> createState() => _Page3State();
+}
+
+class _Page3State extends State<Page3> {
+  @override
   Widget build(BuildContext context) {
-    return const Center(
-      child: Text('Page 3'),
-    );
+    return TimerPage();
   }
 }
 

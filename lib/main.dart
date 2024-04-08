@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:nthu_tracker/Model/course_provider.dart';
-import 'package:nthu_tracker/Table%20Page/main_page.dart';
+import 'package:nthu_tracker/Provider/course_provider.dart';
+import 'package:nthu_tracker/Provider/checklists_provider.dart';
+import 'package:nthu_tracker/main_page.dart';
 import 'package:provider/provider.dart';
 
 void main() {
@@ -11,8 +12,11 @@ class MyApp extends StatelessWidget {
   const MyApp({super.key});
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider(
-      create: (context) => CourseProvider(),
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (context) => CourseProvider()),
+        ChangeNotifierProvider(create: (context) => ChecklistProvider()),
+      ],
       child: MaterialApp(
         theme: ThemeData(
           primarySwatch: Colors.blue,

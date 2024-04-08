@@ -14,8 +14,14 @@ class CourseProvider with ChangeNotifier {
 
   final List<DataRow> _rows = [];
 
-  List<DataRow> get rows => _rows;
+  final List<String> _coursename = [];
+
+  final List<String> _timeslots = [];
+
   List<String> get courseTypeIndex => _courseTypeIndex;
+  List<DataRow> get rows => _rows;
+  List<String> get coursename => _coursename;
+  List<String> get timeslots => _timeslots;
 
   void addRow(DataRow newRow) {
     _rows.add(newRow);
@@ -24,6 +30,26 @@ class CourseProvider with ChangeNotifier {
 
   void removeRow(int index) {
     _rows.removeAt(index);
+    notifyListeners();
+  }
+
+  void addCourseName(String name) {
+    _coursename.add(name);
+    notifyListeners();
+  }
+
+  void removeCourseName(int index) {
+    _coursename.removeAt(index);
+    notifyListeners();
+  }
+
+  void addTime(String time) {
+    timeslots.add(time);
+    notifyListeners();
+  }
+
+  void removeTime(int index) {
+    timeslots.removeAt(index);
     notifyListeners();
   }
 }
