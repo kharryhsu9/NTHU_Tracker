@@ -1,6 +1,6 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:nthu_tracker/Model/course_provider.dart';
-import 'package:nthu_tracker/Model/row.dart';
+import 'package:nthu_tracker/Provider/course_provider.dart';
 import 'package:nthu_tracker/Table%20Page/new_row.dart';
 import 'package:nthu_tracker/Model/table_info.dart';
 import 'package:provider/provider.dart';
@@ -13,8 +13,6 @@ class CourseTable extends StatefulWidget {
 }
 
 class _CourseTableState extends State<CourseTable> {
-  List<String> timeslots = [];
-
   final List<String> _courseTypeIndex = [
     "Compulsory",
     "General Education Course",
@@ -49,28 +47,29 @@ class _CourseTableState extends State<CourseTable> {
       final newRow = DataRow(
         cells: [
           DataCell(
-            Text(typeText, style: const TextStyle(fontSize: 14)),
+            Text(typeText, style: const TextStyle(fontSize: 12)),
           ),
           DataCell(
             Text(
               courseName,
-              style: const TextStyle(fontSize: 14),
+              style: const TextStyle(fontSize: 12),
               overflow: TextOverflow.ellipsis,
               maxLines: 3,
               softWrap: true,
             ),
           ),
           DataCell(
-            Text(credit, style: const TextStyle(fontSize: 14)),
+            Text(credit, style: const TextStyle(fontSize: 12)),
           ),
           DataCell(
-            Text(time, style: const TextStyle(fontSize: 14)),
+            Text(time, style: const TextStyle(fontSize: 12)),
           ),
         ],
       );
       courseProvider.addRow(newRow);
+      courseProvider.addCourseName(courseName);
       updateTable(courseName, time);
-      timeslots.add(time);
+      courseProvider.addTime(time);
     });
   }
 
@@ -79,8 +78,9 @@ class _CourseTableState extends State<CourseTable> {
       final courseProvider =
           Provider.of<CourseProvider>(context, listen: false);
       courseProvider.removeRow(index);
-      updateTable('', timeslots[index]);
-      timeslots.removeAt(index);
+      courseProvider.removeCourseName(index);
+      updateTable('', courseProvider.timeslots[index]);
+      courseProvider.removeTime(index);
       Navigator.of(context).pop();
     });
   }

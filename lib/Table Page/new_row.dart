@@ -130,7 +130,10 @@ class _NewRowState extends State<NewRow> {
                   width: 10,
                 ),
                 Visibility(
-                  visible: _selectedType == TypeCourse.others ? true : false,
+                  visible: _selectedType == TypeCourse.others &&
+                          _customType.isNotEmpty
+                      ? true
+                      : false,
                   child: Text(
                     ': $_customType',
                     style: const TextStyle(fontSize: 16),
